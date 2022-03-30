@@ -96,26 +96,24 @@ Sie können sich alle unterstützten Parameter des Programms \codeword{hirestore
 Nach dem Zurückspielen des Images, starten Sie das System neu und wählen Sie im Bootloader den \emph{Configuration Mode}.
 Führen Sie nach der automatischen Anmeldung als Benutzer \codeword{hidslcfg} in der Konsole folgendes Kommando aus:
 \begin{verbatim}
-  $ sudo hidslcfg -O <system_id>
+  $ sudo hidslcfg wireguard
 \end{verbatim}
-Ersetzen Sie dabei \codeword{<system_id>} durch die System-ID mit welcher Sie das System konfigurieren möchten.
-Beachten Sie dabei, dass System-IDs nicht mehrfach vergeben werden dürfen.
 Sie können zudem über den Parameter \codeword{-u} direkt Ihren Benutzernamen angeben:
 \begin{verbatim}
-  $ sudo hidslcfg -Ou <ihr_benutzername> <system_id>
+  $ sudo hidslcfg -u <ihr_benutzername> wireguard
 \end{verbatim}
 \subsection{Wiedervergabe von System-IDs}
-Standardmäßig unterbindet \codeword{hidslcfg} die Wiedervergabe bereits vergebener System-IDs.
+Standardmäßig erstellt \codeword{hidslcfg} beim Aufruf ein \emph{neues} System in der Datenbank.
 Bei Reparaturfällen darf ausnahmsweise die System-ID an das reparierte Gerät wieder vergeben werden.
 Um dies zu erlauben, müssen Sie den \emph{zusätzlichen} Parameter \codeword{-f} angeben:
 \begin{verbatim}
-  $ sudo hidslcfg -Of <system_id>
+  $ sudo hidslcfg -f wireguard <system_id>
 \end{verbatim}
 bzw.
 \begin{verbatim}
-  $ sudo hidslcfg -Ofu <ihr_benutzername> <system_id>
+  $ sudo hidslcfg -fu <ihr_benutzername> wireguard <system_id>
 \end{verbatim}
-Nutzen Sie diesen Parameter bitte mit Bedacht!
+Seien Sie bei der Wiedervergabe von System-IDs bitte vorsichtig!
 
 \subsection{Fehlerbehebung}
 Falls Sie die folgende Fehlermeldung erhalten:
@@ -135,6 +133,16 @@ Das Voranstellen von \codeword{sudo} ist in diesem Falle nicht notwendig.
 Nach erfolgreicher Konfiguration können Sie das System herunterfahren oder neu starten.
 Das System bootet standardmäßig in den \emph{Digital Signage Mode} und befindet sich dort im Auslieferungszustand im sog. \emph{Schwarzbildmodus}, welcher nur einen Cursor in Form eines Huhns anzeigt.
 Mit diesem können Sie bei Bedarf die Touch-Funktion des Systems testen.
+
+\section{Migration von OpenVPN auf WireGuard}
+Um ein vorhandenes System von \codeword{OpenVPN} auf \codeword{WireGuard} zu migrieren, führen Sie folgendes Kommando aus:
+\begin{verbatim}
+  $ sudo wgmigrate
+\end{verbatim}
+Auch hier können sie mittels des Parameters \codeword{-u} direkt Ihren Benutzernamen angeben:
+\begin{verbatim}
+  $ sudo wgmigrate -u <ihr_benutzername>
+\end{verbatim}
 
 \bibliography{references}{}
 \bibliographystyle{plain}
