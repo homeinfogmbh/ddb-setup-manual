@@ -96,22 +96,29 @@ Sie können sich alle unterstützten Parameter des Programms \codeword{hirestore
 Nach dem Zurückspielen des Images, starten Sie das System neu und wählen Sie im Bootloader den \emph{Configuration Mode}.
 Führen Sie nach der automatischen Anmeldung als Benutzer \codeword{hidslcfg} in der Konsole folgendes Kommando aus:
 \begin{verbatim}
-  $ sudo hidslcfg wireguard
+  $ sudo hidslcfg (-S|-T|-P|-N)
 \end{verbatim}
+Wählen Sie dazu genau einen Hardware Typen aus:
+\begin{itemize}
+  \item \codeword{-S} MOStron TSPC Standard, 24 Zoll
+  \item \codeword{-T} MOStron TSPC Standard, 32 Zoll
+  \item \codeword{-P} MOStron TSPC Phönix, 24 Zoll
+  \item \codeword{-N} MOStron TSPC Neptun, 24 Zoll
+\end{itemize}
 Sie können zudem über den Parameter \codeword{-u} direkt Ihren Benutzernamen angeben:
 \begin{verbatim}
-  $ sudo hidslcfg -u <ihr_benutzername> wireguard
+  $ sudo hidslcfg (-S|-T|-P|-N) -u <ihr_benutzername>
 \end{verbatim}
 \subsection{Wiedervergabe von System-IDs}
 Standardmäßig erstellt \codeword{hidslcfg} beim Aufruf ein \emph{neues} System in der Datenbank.
 Bei Reparaturfällen darf ausnahmsweise die System-ID an das reparierte Gerät wieder vergeben werden.
 Um dies zu erlauben, müssen Sie den \emph{zusätzlichen} Parameter \codeword{-f} angeben:
 \begin{verbatim}
-  $ sudo hidslcfg -f wireguard <system_id>
+  $ sudo hidslcfg (-S|-T|-P|-N) -f <system_id>
 \end{verbatim}
 bzw.
 \begin{verbatim}
-  $ sudo hidslcfg -fu <ihr_benutzername> wireguard <system_id>
+  $ sudo hidslcfg (-S|-T|-P|-N) -fu <ihr_benutzername> <system_id>
 \end{verbatim}
 Seien Sie bei der Wiedervergabe von System-IDs bitte vorsichtig!
 
