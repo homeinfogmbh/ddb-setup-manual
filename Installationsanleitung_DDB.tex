@@ -151,6 +151,19 @@ Auch hier können sie mittels des Parameters \codeword{-u} direkt Ihren Benutzer
   $ sudo wgmigrate -u <ihr_benutzername>
 \end{verbatim}
 
+\section{Reparatur des Dateisystems}
+Falls ein System aufgrund von Dateisystemfehlern nicht mehr bootet, kann es mithilfe des Installationssticks repariert werden.
+Dazu ist das System vom Installationsstick zu Booten und anschließend das Kommando
+\begin{verbatim}
+  # fsck -y /dev/sda2
+\end{verbatim}
+bzw. auf Systemen mit MBR-Boot
+\begin{verbatim}
+  # fsck -y /dev/sda1
+\end{verbatim}
+auszuführen.
+Anschließend kann das System neu gestartet werden.
+
 \bibliography{references}{}
 \bibliographystyle{plain}
 \end{document}
