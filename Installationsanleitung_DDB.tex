@@ -140,6 +140,21 @@ Nach erfolgreicher Konfiguration können Sie das System herunterfahren oder neu 
 Das System bootet standardmäßig in den \emph{Digital Signage Mode} und befindet sich dort im Auslieferungszustand im sog. \emph{Schwarzbildmodus}, welcher nur einen Cursor in Form eines Huhns anzeigt.
 Mit diesem können Sie bei Bedarf die Touch-Funktion des Systems testen.
 
+\section{Magic USB Key}
+Mithilfe eines \emph{magischen} USB Sticks können Sie vordefinierte Konfigurationen auf das System übertragen lassen.
+Der USB Speicherstick muss dabei mit \codeword{FAT32} formatiert sein und das Dateisystemlabel \codeword{DDBCFG} tragen.
+Es werden die folgenden Konfigurationsdateien unterstützt, wobei auf Groß- und Kleinschreibung zu achten ist:
+
+\subsection{WLAN}
+Mittels der Datei \codeword{wifi.txt} können sie \emph{SSID} und \emph{PSK} für die WLAN Konfiguration vordefinieren.
+Die Datei muss \codeword{UTF-8} codiert sein und über zwei Zeilen verfügen:
+\begin{enumerate}
+  \item \emph{SSID}
+  \item \emph{PSK}
+\end{enumerate}
+
+Sie können diese Datei im Reiter \emph{WLAN} des grafischen Installers laden lassen.
+
 \section{Migration von OpenVPN auf WireGuard}
 Um ein vorhandenes System von \codeword{OpenVPN} auf \codeword{WireGuard} zu migrieren, führen Sie folgendes Kommando aus:
 \begin{verbatim}
